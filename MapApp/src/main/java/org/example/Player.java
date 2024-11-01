@@ -9,6 +9,16 @@ public class Player {
     int yLoc;
     Random rn = new Random();
 
+    public boolean isAlive() {
+        return alive;
+    }
+
+    public void setAlive(boolean alive) {
+        this.alive = alive;
+    }
+
+    boolean alive = true;
+
     public Player(int mapX, int mapY) {
         this.xLoc = rn.nextInt(mapX);
         this.yLoc = rn.nextInt(mapY);
@@ -50,16 +60,16 @@ public class Player {
         int[] pLocation = getPlayerLoc();
         switch (direction) {
             case "8":
-                pLocation[0]++;
+                xLoc--;
                 break;
             case "6":
-                pLocation[1]++;
+                yLoc++;
                 break;
             case "4":
-                pLocation[1]--;
+                yLoc--;
                 break;
             case "2":
-                pLocation[0]--;
+                xLoc++;
                 break;
             default:
                 System.out.println("Invalid direction");
