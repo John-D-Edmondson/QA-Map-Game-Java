@@ -1,7 +1,17 @@
 package mapclass;
 
+import org.example.Monster;
+
+import java.util.ArrayList;
+
 public class Map {
+    public char[][] getMap() {
+        return map;
+    }
+
     private char[][] map;
+
+
 
 
     public Map(int x, int y) {
@@ -26,6 +36,16 @@ public class Map {
         int x = playPos[0];
         int y = playPos[1];
         map[x][y] = 'P';
+    }
 
+    public void addMonster(ArrayList<Monster> monsters){
+        for (Monster monster: monsters) {
+            int[] monPos = monster.getLocation();
+            int x = monPos[0];
+            int y = monPos[1];
+
+            map[x][y] = 'M';
+
+        }
     }
 }
