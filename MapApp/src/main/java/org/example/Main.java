@@ -31,6 +31,7 @@ public class Main {
 
         Player player = new Player(x-1,y-1);
         map.updateMap(player.getPlayerLoc());
+        map.addMonster(monsters);
 
         while(player.isAlive()){
             map.printMap();
