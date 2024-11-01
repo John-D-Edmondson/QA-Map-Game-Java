@@ -1,3 +1,5 @@
+package org.example;
+
 import java.util.Random;
 
 public class Treasure {
@@ -16,6 +18,6 @@ public class Treasure {
     }
 
     public void describe() {
-        System.out.println("Treasure is at (" + x + ", " + y + ")!");
+        System.out.println("org.example.Treasure is at (" + x + ", " + y + ")!");
     }
 }
