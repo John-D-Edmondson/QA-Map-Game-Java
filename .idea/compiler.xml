@@ -9,5 +9,8 @@
         <module name="MapApp" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="MapApp" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>
