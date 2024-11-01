@@ -22,7 +22,10 @@ public class Map {
         }
     }
 
-    public void updateMap (int x, int y){
-        map[x][y] =  'P';
+    public void updateMap (int[] playPos){
+        int x = playPos[0];
+        int y = playPos[1];
+        map[x][y] = 'P';
+
     }
 }

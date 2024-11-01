@@ -10,8 +10,8 @@ public class Player {
     Random rn = new Random();
 
     public Player(int mapX, int mapY) {
-        this.xLoc = rn.nextInt(mapX) + 1;
-        this.yLoc = rn.nextInt(mapY) + 1;
+        this.xLoc = rn.nextInt(mapX);
+        this.yLoc = rn.nextInt(mapY);
     }
 
     public int[] getPlayerLoc() {

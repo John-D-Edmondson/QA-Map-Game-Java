@@ -24,10 +24,16 @@ public class Main {
         Monster monster2 = new GreenMonster(x-1,y-1);
 
         ArrayList<Monster> monsters = new ArrayList<Monster>();
-
+        monsters.add(monster1);
+        monsters.add(monster2);
         monster1.greeting();
         monster2.greeting();
 
+
+        Player player = new Player(x-1,y-1);
+        map.updateMap(player.getPlayerLoc());
+
+        map.printMap();
 
 
     }
