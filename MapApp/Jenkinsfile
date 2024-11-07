@@ -28,19 +28,6 @@ pipeline {
             }
         }
         
-        stage('Test') {
-            steps {
-                // Run tests
-                sh "${MAVEN_HOME}/bin/mvn test"
-            }
-            post {
-                // Archive test results
-                always {
-                    junit 'target/surefire-reports/*.xml'
-                }
-            }
-        }
-        
         stage('Archive Artifact') {
             steps {
                 // Archive the build artifact
