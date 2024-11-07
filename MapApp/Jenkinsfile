@@ -1,0 +1,64 @@
+pipeline {
+    agent any
+
+    environment {
+        // Define any environment variables, such as Maven settings
+        MAVEN_HOME = tool 'Maven'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout the code from the repository
+                git branch: 'main', url: 'https://your-repo-url.git'
+            }
+        }
+        
+        stage('Compile') {
+            steps {
+                // Compile the Maven project
+                sh "${MAVEN_HOME}/bin/mvn clean compile"
+            }
+        }
+        
+        stage('Package') {
+            steps {
+                // Package the application
+                sh "${MAVEN_HOME}/bin/mvn package"
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                // Run tests
+                sh "${MAVEN_HOME}/bin/mvn test"
+            }
+            post {
+                // Archive test results
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
+            }
+        }
+        
+        stage('Archive Artifact') {
+            steps {
+                // Archive the build artifact
+                archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+            }
+        }
+    }
+
+    post {
+        // Notifications or clean-up steps
+        always {
+            echo 'Pipeline completed'
+        }
+        success {
+            echo 'Pipeline succeeded'
+        }
+        failure {
+            echo 'Pipeline failed'
+        }
+    }
+}
