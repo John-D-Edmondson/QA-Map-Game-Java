@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         // Define any environment variables, such as Maven settings
-        MAVEN_HOME = tool 'Maven'
+        MAVEN_HOME = tool 'M3'
     }
 
     stages {
